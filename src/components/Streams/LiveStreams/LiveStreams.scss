@@ -1,0 +1,76 @@
+.liveStreamsContainer {
+    padding: 1rem;
+    overflow: scroll;
+    max-height: 100vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+
+    &__topbar {
+        height: 30px;
+        display: flex;
+        align-items: center;
+
+        &_refresh {
+            fill: rgb(202, 202, 202);
+        }
+
+        &_refresh:hover {
+            cursor: pointer;
+            fill: #FFF;
+        }
+
+        &_offline {
+            margin-left: 20px;
+            background: transparent;
+            cursor: pointer;
+            border: 1px solid #b6b6b6;
+            color: #b6b6b6;
+            border-radius: 15px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            transition: all 0.2s;
+        }
+
+        &_offline:hover {
+            background: #b6b6b6;
+            color: #000
+        }
+    }
+
+    &__streams {
+        display: flex;
+        max-height: calc(100vh - 2rem - 30px);
+        flex-direction: column;
+
+        &_favStreams {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &_otherStreams {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+}
+
+.rotate {
+    animation: rotation 1s reverse;
+}
+
+.liveStreamsContainer::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,28 @@
+.offlineUserContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 17rem;
+
+    &__profile {
+        display: flex;
+        align-items: center;
+
+        img {
+            max-width: 50px;
+            border-radius: 50%;
+        }
+
+        &_username {
+            margin-left: 10px;
+        }
+    }
+
+    &:hover {
+        background: #424242;
+    }
+}

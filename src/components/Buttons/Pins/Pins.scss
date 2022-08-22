@@ -1,0 +1,23 @@
+.btn_pin_online {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 30%;
+    background-color: #fafafa77;
+
+    &:hover {
+        transform: scale(1.5);
+        transform-origin: top right;
+    }
+}
+
+.btn_pin_offline {
+    margin-left: 15px;
+    padding: 3px;
+    background-color: #fafafa77;
+    border-radius: 50%;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}

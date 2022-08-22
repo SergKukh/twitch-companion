@@ -1,0 +1,19 @@
+@import '../../constants/vars.scss';
+
+.topStreamsContainer {
+    height: 100vh;
+    width: 100%;
+    background: $backgroundColor;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &__streams {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.topStreamsContainer::-webkit-scrollbar {
+    display: none;
+}

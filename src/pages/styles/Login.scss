@@ -1,0 +1,69 @@
+@import '../../constants/vars.scss';
+$borderColor: #313131;
+
+.login_container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $backgroundColor;
+}
+
+.login_btn_twitchLogin {
+    position: relative;
+    font-size: 2rem;
+    padding: 1.25rem 2rem;
+    text-transform: uppercase;
+    border-radius: 0.75rem;
+    border: 3px solid $borderColor;
+    background-color: $twitchVioletLighter1;
+    color: rgb(241, 241, 241);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.15s;
+
+    &__icon {
+        background: url('../../assets/twitch-black-logo.png') no-repeat;
+        background-size: contain;
+        width: 3rem;
+        height: 3rem;
+        margin-left: 1rem;
+        float: right;
+    }
+}
+
+.login_btn_twitchLogin::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $twitchVioletDarkest2;
+    border-radius: inherit;
+    transform: translate3d(0, 1rem, -1rem);
+    transition: transform 0.15s;
+}
+
+.login_btn_twitchLogin:hover {
+    background: $twitchViolet;
+    transform: translate(0, 0.5rem);
+}
+
+.login_btn_twitchLogin:active {
+    background: $twitchVioletDarkest1;
+    transform: translate(0, 1rem);
+}
+
+.login_btn_twitchLogin:hover::before {
+    transform: translate3d(0, 0.5rem, -1rem);
+}
+
+.login_btn_twitchLogin:active::before {
+    transform: translate3d(0, 0rem, -1rem);
+}

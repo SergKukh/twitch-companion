@@ -1,0 +1,26 @@
+.menuItemContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0 10px 0;
+    white-space: nowrap;
+
+    &:hover {
+        background: #161616;
+        color: #ff4444
+    }
+
+    &__img {
+        min-width: 3.5rem;
+        display: flex;
+        justify-content: center;
+
+        & img {
+            width: 1.5rem;
+        }
+    }
+
+    &__title {
+        margin-left: 10px;
+    }
+}

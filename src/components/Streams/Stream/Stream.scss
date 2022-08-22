@@ -1,0 +1,78 @@
+@import '../../../constants/vars.scss';
+
+.streamContainer {
+    padding: 3px;
+    margin: 0.5rem;
+    width: 15rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+
+    &__top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.2rem;
+
+        &_username {
+            font-weight: 300;
+
+        }
+
+        &_viewerCount {
+            color: #fc5f5f;
+        }
+    }
+
+    &__thumbnail {
+        margin-top: 3px;
+        width: 100%;
+        position: relative;
+        height: 140px;
+
+        img {
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            top: 0;
+        }
+
+        &_time {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #000000cc;
+            padding: 2px 4px;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3px;
+
+        &_gameName {
+            max-height: 1rem;
+            overflow: hidden;
+            color: #ffd5d5;
+        }
+
+        &_title {
+            max-height: 2rem;
+            overflow: hidden;
+            margin-top: 2px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.streamContainer:hover {
+    background-color: #222222;
+    box-shadow: 10px 10px 5px #222222,
+        -10px -10px 5px #222222,
+        -10px 10px 5px #222222,
+        10px -10px 5px #222222,
+    ;
+    transform: scale(1.05);
+}

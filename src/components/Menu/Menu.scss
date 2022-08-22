@@ -1,0 +1,36 @@
+.menuContainer {
+    background: #1d1d1d;
+    color: #fff;
+    padding-top: 10px;
+    width: 3.5rem;
+    transition: width 0.5s;
+    overflow: hidden;
+
+    &:hover {
+        width: 13rem;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+
+        &_img {
+            min-width: 3.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        & img {
+            border-radius: 50%;
+            width: 2.5rem;
+        }
+
+        &_username {
+            margin-left: 10px;
+        }
+    }
+
+    &__list {
+        margin-top: 15px;
+    }
+}
