@@ -22,7 +22,7 @@ const LiveStreams: FC = () => {
 
     const fetchStreams = async () => {
         setIsLoading(true);
-        liveStreams.current = await StreamService.getLiveStreams();
+        liveStreams.current = await StreamService.getLiveStreams(user.userId);
         sortFavStreams();
     }
 

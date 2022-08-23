@@ -8,7 +8,7 @@ interface getTopStreamsResponse {
 }
 
 export default class StreamService {
-    static async getLiveStreams(): Promise<IStream[]> {
+    static async getLiveStreams(userId: string): Promise<IStream[]> {
         try {
             const response = await axios.get('https://api.twitch.tv/helix/streams/followed', {
                 headers: {
@@ -16,7 +16,7 @@ export default class StreamService {
                     'Client-Id': getClientId()
                 },
                 params: {
-                    'user_id': localStorage.getItem('id')
+                    'user_id': userId
                 }
             });
             return response.data.data;
