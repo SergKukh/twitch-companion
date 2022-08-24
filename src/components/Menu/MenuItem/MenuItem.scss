@@ -5,9 +5,11 @@
     padding: 10px 0 10px 0;
     white-space: nowrap;
 
-    &:hover {
-        background: #161616;
-        color: #ff4444
+    @media (hover: hover) {
+        &:hover {
+            background: #161616;
+            color: #ff4444
+        }
     }
 
     &__img {
@@ -22,5 +24,23 @@
 
     &__title {
         margin-left: 10px;
+    }
+}
+
+@media (max-width: 755px) {
+    .menuItemContainer {
+        flex-direction: column;
+        padding: 0;
+        justify-content: center;
+        margin-right: 1rem;
+
+        & img {
+            width: 1.2rem;
+        }
+
+        &__title {
+            margin-left: 0;
+            font-size: 0.9rem;
+        }
     }
 }

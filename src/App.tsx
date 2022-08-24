@@ -13,13 +13,15 @@ function App() {
         isAuth ?
           <div className="container">
             <Menu />
-            <Routes>
-              {
-                privateRoutes.map(route =>
-                  <Route path={route.path} element={route.element} key={route.path} />)
-              }
-              < Route path="*" element={< Navigate to={RouteNames.MAIN} replace />} />
-            </Routes>
+            <div className="contentContainer">
+              <Routes>
+                {
+                  privateRoutes.map(route =>
+                    <Route path={route.path} element={route.element} key={route.path} />)
+                }
+                < Route path="*" element={< Navigate to={RouteNames.MAIN} replace />} />
+              </Routes>
+            </div>
           </div>
           :
           <Routes>

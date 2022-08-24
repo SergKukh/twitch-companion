@@ -21,7 +21,6 @@ export default class StreamService {
             });
             return response.data.data;
         } catch (error) {
-            console.log(error);
             return [];
         }
     }
@@ -39,7 +38,6 @@ export default class StreamService {
             });
             return { streams: response.data.data, pagination: response.data?.pagination?.cursor || '' };
         } catch (error) {
-            console.log(error);
             return { streams: [], pagination: '' };
         }
     }

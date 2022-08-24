@@ -8,7 +8,6 @@ import imageTopStreams from '../../assets/menu/topstreams.png';
 
 const Menu: FC = memo(() => {
     const { user } = useTypedSelector(state => state.auth);
-    console.log('render Menu')
 
     return (
         <div className="menuContainer">

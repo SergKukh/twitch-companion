@@ -3,7 +3,7 @@
 .streamContainer {
     padding: 3px;
     margin: 0.5rem;
-    width: 15rem;
+    width: $streamThumbnailDefaultWidth;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,8 @@
 
         &_username {
             font-weight: 300;
-
+            max-width: 100%;
+            overflow: hidden;
         }
 
         &_viewerCount {
@@ -29,7 +30,7 @@
         margin-top: 3px;
         width: 100%;
         position: relative;
-        height: 140px;
+        height: $streamThumbnailDefaultHeight;
 
         img {
             width: inherit;
@@ -67,12 +68,52 @@
     }
 }
 
-.streamContainer:hover {
-    background-color: #222222;
-    box-shadow: 10px 10px 5px #222222,
-        -10px -10px 5px #222222,
-        -10px 10px 5px #222222,
-        10px -10px 5px #222222,
-    ;
-    transform: scale(1.05);
+@media (hover: hover) {
+    .streamContainer:hover {
+        background-color: #222222;
+        box-shadow: 10px 10px 5px #222222,
+            -10px -10px 5px #222222,
+            -10px 10px 5px #222222,
+            10px -10px 5px #222222,
+        ;
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 755px) {
+    .streamContainer {
+        width: calc($streamThumbnailDefaultWidth * 0.8);
+
+        &__thumbnail {
+            height: calc($streamThumbnailDefaultHeight * 0.8);
+        }
+    }
+}
+
+@media (max-width: 675px) {
+    .streamContainer {
+        width: calc($streamThumbnailDefaultWidth * 0.7);
+
+        &__thumbnail {
+            height: calc($streamThumbnailDefaultHeight * 0.7);
+        }
+
+        &__top {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media (max-width: 412px) {
+    .streamContainer {
+        width: calc($streamThumbnailDefaultWidth * 0.6);
+
+        &__thumbnail {
+            height: calc($streamThumbnailDefaultHeight * 0.6);
+        }
+
+        &__top {
+            font-size: 1rem;
+        }
+    }
 }
