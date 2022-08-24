@@ -24,5 +24,10 @@ export const AuthActionCreators = {
             dispatch(AuthActionCreators.setAuthError('Auth error'));
             removeAccesToken();
         }
+    },
+    logout: () => (dispatch: AppDispatch) => {
+        dispatch(AuthActionCreators.setIsAuth(false));
+        dispatch(AuthActionCreators.setUser({} as IUser))
+        removeAccesToken();
     }
 }
