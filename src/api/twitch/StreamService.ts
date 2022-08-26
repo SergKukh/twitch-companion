@@ -2,13 +2,18 @@ import axios from "axios";
 import { IStream } from "../../models/IStream";
 import { getAccessToken, getClientId } from "../../utils/headers";
 
+interface getLiveStreamsResponse {
+    streams: IStream[]
+    pagination: string
+}
+
 interface getTopStreamsResponse {
     streams: IStream[]
     pagination: string
 }
 
 export default class StreamService {
-    static async getLiveStreams(userId: string): Promise<IStream[]> {
+    static async getLiveStreams(userId: string, pagination: string): Promise<getLiveStreamsResponse> {
         try {
             const response = await axios.get('https://api.twitch.tv/helix/streams/followed', {
                 headers: {
@@ -16,12 +21,13 @@ export default class StreamService {
                     'Client-Id': getClientId()
                 },
                 params: {
-                    'user_id': userId
+                    'user_id': userId,
+                    'after': pagination
                 }
             });
-            return response.data.data;
+            return { streams: response.data.data, pagination: response.data?.pagination?.cursor || '' };
         } catch (error) {
-            return [];
+            return { streams: [] as IStream[], pagination: '' };
         }
     }
 

@@ -15,6 +15,7 @@ const LiveStreams: FC = () => {
     const [liveFavStreams, setLiveFavStreams] = useState([] as IStream[]);
     const [liveOtherStreams, setLiveOtherStreams] = useState([] as IStream[]);
     const refreshBtn = useRef<SVGSVGElement>(null);
+    const pagination = useRef<string>('');
 
     useEffect(() => {
         fetchStreams();
@@ -22,8 +23,18 @@ const LiveStreams: FC = () => {
 
     const fetchStreams = async () => {
         setIsLoading(true);
-        liveStreams.current = await StreamService.getLiveStreams(user.userId);
+        liveStreams.current = [];
+        await fetchLiveStreams();
         sortFavStreams();
+    }
+
+    const fetchLiveStreams = async () => {
+        const response = await StreamService.getLiveStreams(user.userId, pagination.current);
+        liveStreams.current = [...liveStreams.current, ...response.streams];
+        pagination.current = response.pagination;
+        if (pagination.current) {
+            await fetchLiveStreams();
+        }
     }
 
     const sortFavStreams = () => {
